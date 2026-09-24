@@ -22,6 +22,9 @@ public class ChatController {
     @GetMapping("/chat")
     public String model(@RequestParam(value = "message", defaultValue = "Hello") String message) {
         System.out.println("chatModel = "+ chatModel + " , userInput=" + message);
-        return text2SqlService.ask(message);
+        var result = text2SqlService.ask(message);
+        System.out.println("session = "+ result.getSessionId() + " , auditRecords=" + result.getAuditRecords() + ", finalAnswer=" + result.getAnswer());
+
+        return result.getAnswer();
     }
 }

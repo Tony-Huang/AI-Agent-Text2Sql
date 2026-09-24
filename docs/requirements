@@ -1,0 +1,8 @@
+
+Build a text to SQL AI agent
+
+1.Input is natural language, such as “Give me the total quantity of mobile phone sold last month“
+
+2.Output is result of executed SQL for input, such as “5000“
+
+3.The users will be the Operation team or HR, not the tech guys.
