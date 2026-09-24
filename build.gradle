@@ -17,13 +17,31 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	langchain4jVersion = '1.20.0'
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	//implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'dev.langchain4j:langchain4j-community-dashscope-spring-boot-starter:1.20.0-beta30'
 	implementation 'dev.langchain4j:langchain4j-spring-boot-starter:1.20.0-beta30'
+
+	// LangChain4j core + RAG + embedding + openai compatible(Qwen)
+	implementation "dev.langchain4j:langchain4j:${langchain4jVersion}"
+	//implementation "dev.langchain4j:langchain4j-open-ai:${langchain4jVersion}"
+	//implementation("dev.langchain4j:langchain4j-dashscope:0.36.2")
+	implementation "dev.langchain4j:langchain4j-embeddings:1.20.0-beta30"
+	//implementation "dev.langchain4j:langchain4j-embeddings-all-minilm-l6-v2:1.20.0-beta30"
+
+	// JSqlParser for SQL validation
+	implementation 'com.github.jsqlparser:jsqlparser:4.9'
+
+	// Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.48'
+	annotationProcessor 'org.projectlombok:lombok:1.18.48'
 	// Microsoft SQL Server JDBC driver
 	implementation 'com.microsoft.sqlserver:mssql-jdbc:13.2.1.jre11'
 
